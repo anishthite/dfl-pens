@@ -65,7 +65,7 @@ def parseargs():
 
     # Federation
     parser.add_argument(
-        "--n_clients", help="Number of clients.", type=int, default=200,
+        "--n_clients", help="Number of clients.", type=int, default=20,
     )
     parser.add_argument(
         "--n_neighbours",
@@ -223,7 +223,7 @@ if __name__ == "__main__":
     args.gpu, device = set_gpu_and_device(args.gpu)
 
     # Initialize clients
-    clients = create_clients(args, TensorFlowCIFAR10Net, device)
+    clients = create_clients(args, CIFAR10Net, device)
 
     # Train models
     train(args, clients)

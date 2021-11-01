@@ -247,10 +247,10 @@ def train_edu(args, clients):
     # Reset models
     if args.reset_models_before_final_training:
         _, device = set_gpu_and_device(args.gpu)
-        net = TensorFlowCIFAR10Net()  # in the case of dependent model initialization
+        net = CIFAR10Net()  # in the case of dependent model initialization
         for client in clients:
             if args.independent_model_initialization:
-                client.model = to_device(TensorFlowCIFAR10Net(), device)
+                client.model = to_device(CIFAR10Net(), device)
             else:
                 client.model = copy.deepcopy(to_device(net, device))
             client.optimizer = torch.optim.Adam(client.model.parameters(), args.lr)

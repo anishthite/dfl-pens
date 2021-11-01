@@ -68,7 +68,7 @@ class ExperimentRunner:
         for rep in range(self.args.n_repetitions):
             # Initialize clients
             if self.args.dataset == "CIFAR-10":
-                net_class = TensorFlowCIFAR10Net
+                net_class = CIFAR10Net
             elif self.args.dataset == "Fashion-MNIST":
                 net_class = FashionMNISTNet
             else:
